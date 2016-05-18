@@ -11,5 +11,6 @@ setup(
         'lektor.plugins': [
             'jupyter = lektor_jupyter:JupyterPlugin',
         ]
-    }
+    },
+    install_requires=['nbformat', 'nbconvert'],
 )

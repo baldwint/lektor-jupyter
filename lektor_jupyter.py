@@ -8,6 +8,9 @@ from lektor.pluginsystem import Plugin
 from lektor.types import SelectType
 from lektor.context import get_ctx
 
+import nbformat
+from nbconvert import HTMLExporter
+
 def notebook_to_html(text, record=None):
     metadata = {}
 
@@ -24,7 +27,10 @@ def notebook_to_html(text, record=None):
 
     # render it
     with open(notebook_path) as fl:
-        body = fl.read(100)
+        nb = nbformat.read(fl, as_version=4)
+        exporter = HTMLExporter()
+
+        body,resources = exporter.from_notebook_node(nb)
 
     return body, metadata
 
