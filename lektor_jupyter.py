@@ -12,7 +12,6 @@ import nbformat
 from nbconvert import HTMLExporter
 
 def notebook_to_html(text, record=None):
-    metadata = {}
 
     # construct full path to the notebook (in same dir)
     directory,contents_lr = os.path.split(record.source_filename)
@@ -28,11 +27,14 @@ def notebook_to_html(text, record=None):
     # render it
     with open(notebook_path) as fl:
         nb = nbformat.read(fl, as_version=4)
-        exporter = HTMLExporter()
 
-        body,resources = exporter.from_notebook_node(nb)
+    exporter = HTMLExporter()
+    exporter.template_file = 'basic'
 
-    return body, metadata
+    body,resources = exporter.from_notebook_node(nb)
+
+    return body,resources
+
 
 class Notebook(object):
 
