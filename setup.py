@@ -5,6 +5,7 @@ setup(
     version='0.1',
     author=u'Thomas Baldwin',
     author_email='tkb@sent.com',
+    url='http://github.com/baldwint/lektor-jupyter',
     license='MIT',
     py_modules=['lektor_jupyter'],
     entry_points={
