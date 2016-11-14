@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='lektor-jupyter',
     description='Embed Jupyter notebooks in Lektor pages',
-    version='0.1',
+    version='0.2dev',
     author=u'Thomas Baldwin',
     author_email='tkb@sent.com',
     url='http://github.com/baldwint/lektor-jupyter',
